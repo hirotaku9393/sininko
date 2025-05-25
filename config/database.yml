@@ -84,7 +84,9 @@ test:
 production:
   primary: &primary_production
     <<: *default
-    database: myapp_production
+    adapter: postgresql
+    encoding: unicode
+    database: <%= ENV["DB_NAME"] %>
     username: myapp
     password: <%= ENV["MYAPP_DATABASE_PASSWORD"] %>
   cache:
